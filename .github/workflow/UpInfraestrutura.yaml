@@ -1,0 +1,41 @@
+name: Terraform Apply
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform-apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Instalar Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Inicializar Terraform
+        working-directory: Terraform
+        run: terraform init -upgrade
+
+      - name: Validar Terraform
+        working-directory: Terraform
+        run: terraform validate
+
+      - name: Planejar Terraform
+        working-directory: Terraform
+        run: terraform plan -out=plan.out
+
+      - name: Aplicar Terraform
+        working-directory: Terraform
+        run: terraform apply -auto-approve plan.out
