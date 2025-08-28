@@ -1,0 +1,23 @@
+  520  printf '[{"name":"bia","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+ 2731  kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+ 3126  cat mcp.json
+ 3496  vi Task-Definitiona-Json-BIA.json
+ 3874  aws cloudfront create-distribution --distribution-config file://cloudfront-config-www.json --profile app-junior --region us-east-1\n
+ 5050  # 1. Remova os arquivos com credenciais\ngit rm tokens-gerados.json tokens-sts-ativos.json\n\n# 2. Adicione ao .gitignore para evitar commits acidentais no futuro\necho "tokens-*.json" >> .gitignore\ngit add .gitignore\n\n# 3. Faça um novo commit\ngit commit -m "remove arquivos com credenciais AWS"\n\n# 4. Faça push novamente\ngit push origin main
+ 5062  git filter-repo --force --invert-paths --path tokens-gerados.json --path tokens-sts-ativos.json\n
+ 5067  git filter-repo --force \\n  --path tokens-gerados.json \\n  --path tokens-sts-ativos.json \\n  --invert-paths
+ 5071  echo "tokens-*.json" >> .gitignore\ngit add .gitignore\ngit commit -m "Adiciona tokens ao .gitignore"
+ 6401  aws cloudwatch put-dashboard --dashboard-name EKS-Professional-Dashboard --dashboard-body file://dashboard.json
+ 6405  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6407  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6408  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6409  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6410  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6411  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6412  aws cloudwatch put-dashboard --dashboard-name EKS-Debug-Dashboard --dashboard-body file://dashboard-debug.json
+ 6413  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6414  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6432  kubectl get service nginx-service --namespace default -o jsonpath='{.status.loadBalancer.ingress[0].hostname}
+ 6433  kubectl get service nginx-service --namespace default -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
+ 6435  history |grep json
+ 6437* kubectl get secret prometheus-stack-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 --decode

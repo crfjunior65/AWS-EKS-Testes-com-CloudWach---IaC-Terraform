@@ -1,0 +1,210 @@
+{
+    "widgets": [
+        {
+            "type": "text",
+            "x": 0,
+            "y": 0,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "# Análise Avançada do Cluster EKS: plataforma-bet-eks-cluster"
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 1,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "### Visão Geral e KPIs do Control Plane"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 2,
+            "width": 4,
+            "height": 3,
+            "properties": {
+                "view": "singleValue",
+                "metrics": [
+                    [ "ContainerInsights", "cluster_node_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Nós Ativos"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 4,
+            "y": 2,
+            "width": 4,
+            "height": 3,
+            "properties": {
+                "view": "singleValue",
+                "metrics": [
+                    [ "ContainerInsights", "cluster_pod_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Pods Totais"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 8,
+            "y": 2,
+            "width": 4,
+            "height": 3,
+            "properties": {
+                "view": "singleValue",
+                "metrics": [
+                    [ "ContainerInsights", "namespace_number_of_running_pods", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Namespaces"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 2,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "metrics": [
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_latency_seconds\" ClusterName=\"plataforma-bet-eks-cluster\"', 'p99', 300)", "label": "Latência p99", "id": "e1" } ]
+                ],
+                "region": "us-east-1",
+                "title": "Latência do API Server (p99)"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 2,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "metrics": [
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"plataforma-bet-eks-cluster\" Code=~\"5..\"', 'Sum', 300)", "label": "Erros 5xx", "id": "e1" } ],
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"plataforma-bet-eks-cluster\" Code=~\"4..\"', 'Sum', 300)", "label": "Erros 4xx", "id": "e2" } ]
+                ],
+                "region": "us-east-1",
+                "title": "Erros do API Server (Soma)"
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 8,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "### Análise Profunda dos Nós (Worker Nodes)"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 9,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "metrics": [
+                    [ "ContainerInsights", "node_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Utilização de CPU por Nó (%)"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 9,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "metrics": [
+                    [ "ContainerInsights", "node_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Utilização de Memória por Nó (%)"
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 15,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "### Análise das Cargas de Trabalho (Workloads)"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 16,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "region": "us-east-1",
+                "title": "Top Pods por CPU",
+                "metrics": [
+                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e1" } ]
+                ]
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 16,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "region": "us-east-1",
+                "title": "Top Pods por Memória",
+                "metrics": [
+                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_memory_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e2" } ]
+                ]
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 22,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "metrics": [
+                    [ "ContainerInsights", "namespace_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Utilização de CPU por Namespace"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 22,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "metrics": [
+                    [ "ContainerInsights", "namespace_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Utilização de Memória por Namespace"
+            }
+        }
+    ]
+}

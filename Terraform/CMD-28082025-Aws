@@ -1,0 +1,159 @@
+  511  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 023770199924.dkr.ecr.us-east-1.amazonaws.com
+  512  REPOSITORY_URI=023770199924.dkr.ecr.us-east-1.amazonaws.com/bia
+  527  bia.c4n0kckw4m91.us-east-1.rds.amazonaws.com
+  604  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 023770199924.dkr.ecr.us-east-1.amazonaws.com
+  606  docker tag bia:latest 023770199924.dkr.ecr.us-east-1.amazonaws.com/bia:latest
+  607  docker push 023770199924.dkr.ecr.us-east-1.amazonaws.com/bia:latest
+  963  vi ~/.aws/credentials
+ 1052  java -jar ../bfg.jar --delete-files terraform-provider-aws_v5.22.0_x5\n
+ 1126  cat ~/.aws/credentials
+ 1127  vi ~/.aws/credentials
+ 1435  wget https://desktop-release.q.us-east-1.amazonaws.com/latest/amazon-q.appimage
+ 1441  wget https://desktop-release.q.us-east-1.amazonaws.com/latest/amazon-q.deb
+ 1788  git log -p | grep -E 'AKIA|aws_access_key_id|aws_secret_access_key'
+ 1798  git log -p | grep -E 'AKIA|aws_access_key_id|aws_secret_access_key'
+ 2185  cat ~/.aws/credentials
+ 2186  aws s3 ls --profile app-junior
+ 2187  aws s3 ls s3://app.junior.tec.br --profile app-junior
+ 2188  aws s3 cp index.html s3://app.junior.tec.br/ --profile app-junior
+ 2191  aws s3 cp CV-JuniorFernandes.pdf s3://app.junior.tec.br/ --profile app-junior
+ 2212  aws s3 ls s3://app.junior.tec.br --profile app-junior
+ 3016  vi .aws/credentials
+ 3033  aws configure
+ 3048  vi ~/.aws/credentials
+ 3049  aws s3  ls
+ 3113  cd .aws/amazonq
+ 3121  aws configure list-profiles
+ 3190  vi ~/.aws/credentials
+ 3191  aws s3 ls
+ 3192  aws iam list-users
+ 3193  aws configure
+ 3362  aws sts get-caller-identity
+ 3363  aws q login
+ 3412  curl --proto '=https' --tlsv1.2 -sSf "https://desktop-release.q.us-east-1.amazonaws.com/latest/q-x86_64-linux.zip" -o "q.zip"
+ 3500  curl -v --connect-timeout 10 http://bia-alb-235972102.us-east-1.elb.amazonaws.com/api/versao
+ 3502  873976612170.dkr.ecr.us-east-1.amazonaws.com
+ 3570  aws configure
+ 3571  cat ~/.aws/credentials
+ 3573  aws sts get-caller-identity --profile AdministratorAccess-743065069150
+ 3853  vi .aws/credentials
+ 3854  aws s3 ls --profile=app-junior
+ 3860  aws cloudfront list-distributions --profile app-junior --region us-east-1
+ 3861  aws s3api list-buckets --profile app-junior --region us-east-1
+ 3862  aws s3api get-bucket-website --bucket app.junior.tec.br --profile app-junior --region us-east-1
+ 3863  aws route53 list-hosted-zones --profile app-junior --region us-east-1
+ 3864  aws cloudfront get-distribution-config --id E1NP0JAIGM458R --profile app-junior --region us-east-1
+ 3869  q translate 'aws s3 sync . s3://www.junior.tec.br --delete --exclude "IaC/*" --exclude ".git/*" --exclude ".github/*" --profile app-junior'#aws s3 sync . s3://www.junior.tec.br --delete --exclude "IaC/*" --exclude ".git/*" --exclude ".github/*" --profile app-junior
+ 3870  aws s3 cp index.html s3://www.junior.tec.br/ --profile app-junior
+ 3871  aws s3 cp CV-JuniorFernandes.pdf s3://www.junior.tec.br/ --profile app-junior
+ 3873  aws s3api put-bucket-policy --bucket www.junior.tec.br --policy '{\n  "Version": "2012-10-17",\n  "Statement": [\n    {\n      "Sid": "PublicReadGetObject",\n      "Effect": "Allow",\n      "Principal": "*",\n      "Action": "s3:GetObject",\n      "Resource": "arn:aws:s3:::www.junior.tec.br/*"\n    }\n  ]\n}' --profile app-junior\n
+ 3874  aws cloudfront create-distribution --distribution-config file://cloudfront-config-www.json --profile app-junior --region us-east-1\n
+ 3875  aws cloudfront list-distributions --profile app-junior --query 'DistributionList.Items[?Aliases.Items[0]==`www.junior.tec.br`].{Id:Id,Status:Status,DomainName:DomainName}'
+ 3876  aws s3api put-bucket-policy --bucket www.junior.tec.br --policy '{\n  "Version": "2012-10-17",\n  "Statement": [\n    {\n      "Sid": "PublicReadGetObject",\n      "Effect": "Allow",\n      "Principal": "*",\n      "Action": "s3:GetObject",\n      "Resource": "arn:aws:s3:::www.junior.tec.br/*"\n    },\n    {\n      "Sid": "AllowCloudFrontServicePrincipal",\n      "Effect": "Allow",\n      "Principal": {\n        "Service": "cloudfront.amazonaws.com"\n      },\n      "Action": "s3:GetObject",\n      "Resource": "arn:aws:s3:::www.junior.tec.br/*",\n      "Condition": {\n        "StringEquals": {\n          "AWS:SourceArn": "arn:aws:cloudfront::275263720574:distribution/SEU-DISTRIBUTION-ID"\n        }\n      }\n    }\n  ]\n}' --profile app-junior\n
+ 3911  history |grep  aws
+ 3912  aws s3 cp index.html s3://app.junior.tec.br/ --profile app-junior
+ 3913  aws s3 cp index.html s3://www.junior.tec.br/ --profile app-junior
+ 3914  aws s3 cp index.html s3://app.junior.tec.br/ --profile app-junior
+ 3915  aws cloudfront create-invalidation \\n  --distribution-id E1NP0JAIGM458R \\n  --paths "/*" \\n  --profile app-junior
+ 3916  aws cloudfront create-invalidation \\n  --distribution-id E2LT3WIFY4X4IS \\n  --paths "/*" \\n  --profile app-junior\n
+ 3917  aws s3 cp index.html s3://app.junior.tec.br/ --profile app-junior
+ 3918  aws s3 cp index.html s3://www.junior.tec.br/ --profile app-junior
+ 3919  aws cloudfront create-invalidation \\n  --distribution-id E2LT3WIFY4X4IS \\n  --paths "/*" \\n  --profile app-junior\n
+ 3920  aws cloudfront create-invalidation \\n  --distribution-id E1NP0JAIGM458R \\n  --paths "/*" \\n  --profile app-junior
+ 3933  aws s3 cp index.html s3://app.junior.tec.br/ --profile app-junior
+ 3934  aws s3 cp index.html s3://www.junior.tec.br/ --profile app-junior
+ 3935  aws cloudfront create-invalidation \\n  --distribution-id E1NP0JAIGM458R \\n  --paths "/*" \\n  --profile app-junior
+ 3936  aws cloudfront create-invalidation \\n  --distribution-id E2LT3WIFY4X4IS \\n  --paths "/*" \\n  --profile app-junior\n
+ 4564  vi ~/.aws/credentials
+ 4577  aws s3 l --profile crfjunior-outlook
+ 4578  aws s3 ls --profile crfjunior-outlook
+ 4583  aws s3 ls | grep nome-do-seu-bucket --profile crfjunior-outlook
+ 4584  aws s3 ls --profile crfjunior-outlook
+ 4593  aws s3api head-bucket --bucket crfjunior-terraform-state-bia || echo "Bucket doesn't exist"\n
+ 4594  aws s3api head-bucket --bucket crfjunior-terraform-state-bia\n
+ 4595  # Reset Terraform's state tracking\nterraform state rm aws_s3_bucket.s3_state 2>/dev/null || true\n\n# Clear any cached data\nrm -rf .terraform* terraform.tfstate*\n\n# Reinitialize\nterraform init
+ 4677  aws s3api head-bucket --bucket crfjunior-terraform-state-bia || echo "Bucket doesn't exist"\n
+ 4684  wget https://amazonaws.com/tcb-voting-app.zip
+ 4686  wget https://tcb-bootcamps.s3.amazonaws.com/bootcamp-microsoft-azure/en/mod3-tcb-voting-app.zip\nunzip mod3-tcb-voting-app.zip
+ 4693  wget https://tcb-bootcamps.s3.amazonaws.com/bootcamp-microsoft-azure/en/mod3-tcb-voting-app.zip\nunzip mod3-tcb-voting-app.zip
+ 4742  vi ~/.aws/credentials
+ 4756  aws configure
+ 4757  aws s3 ls
+ 4758  aws s3 ls s3://crfjunior-terraform-state-bia
+ 4759  aws s3api get-bucket-location --bucket crfjunior-terraform-state-bia
+ 4765  vi ~/.aws/credentials
+ 4876  terraform taint aws_security_group.bia-ec2
+ 4930  aws s3 ls
+ 4938  aws sts get-session-token
+ 4940  q translate 'aws sts get-session-token --duration-seconds 900'aws sts get-session-token --duration-seconds 900
+ 4941  aws configure
+ 4942  aws configure --profile DesafioAWS
+ 4946  cd .aws
+ 4948  aws
+ 4949  aws configure
+ 4950  aws configure --profile DesafioAWS
+ 4952  aws sts get-session-token --duration-seconds 900 --profile DesafioAWS
+ 4955  aws configure
+ 4956  aws s3 ls
+ 4957  q translate 'aws sts get-session-token --duration-seconds 900 --profile DesafioAWS'aws sts get-session-token --duration-seconds 900 --profile DesafioAWS
+ 4958  aws s3 ls --profile DesafioAWS
+ 4959  aws sts get-session-token --duration-seconds 900 --profile DesafioAWS
+ 4965  aws s3 ls --profile DesafioAWS
+ 4966  aws s3 ls
+ 4971  aws s3 ls
+ 4972  aws s3 ls --profileDesafioAWS
+ 4973  aws s3 ls --profile DesafioAWS
+ 4974  aws s3 ls
+ 4977  aws s3 ls
+ 4990  aws sts get-caller-identity
+ 5000  aws s3 ls
+ 5001  ./limpar-e-configurar-aws.sh
+ 5002  vi limpar-e-configurar-aws.sh
+ 5003  ./limpar-e-configurar-aws.sh
+ 5004  aws configure list
+ 5006  ./limpar-e-configurar-aws.sh
+ 5009  aws configure list
+ 5010  aws sts get-caller-identity
+ 5011  aws sts get-caller-identity --profile DesafioAWS
+ 5012  aws sts get-session-token --duration-seconds 3600 --profile DesafioAWS
+ 5017  aws sts get-caller-identity --profile DesafioAWS
+ 5018  aws iam get-user --user-name DasafioAWS --profile DesafioAWS
+ 5073  aws configure
+ 5075  cat ~/.aws/credentials |grep AIDA
+ 5076  cat ~/.aws/credentials |grep ASIA
+ 5328  cat ~/.aws/credentials
+ 5385  aws sts get-caller-identity --profile crfjunior-outlook
+ 5404  aws sts get-caller-identity
+ 5405  aws sts get-caller-identity --profile crfjunior-outlook
+ 5407  ping sts.us-east-1.amazonaws.com
+ 5408  aws configure list-profiles
+ 5409  aws sts get-caller-identity --profile crfjunior-outlook
+ 5410  aws s3 ls --profile crfjunior-outlook
+ 5648  vi ~/.aws/credentials
+ 5670  vi ~/.aws/credentials
+ 5671  cat ~/.aws/credentials
+ 5802  cat ~/.aws/credentials
+ 5912  vi aws_ecs_cluster.tf
+ 5926  vi  aws_launch_template.tf
+ 5929  cat  aws_launch_template.tf
+ 6282  q login --identity-provider https://\<seu-start-url\>.awsapps.com/start --region us-east-1\n
+ 6317* vi ~/.aws/credentials
+ 6318* aws configure
+ 6376  aws eks update-kubeconfig --region us-east-1 --name plataforma-bet-eks-cluster
+ 6383  aws eks update-kubeconfig --region us-east-1 --name plataforma-bet-eks-cluster
+ 6401  aws cloudwatch put-dashboard --dashboard-name EKS-Professional-Dashboard --dashboard-body file://dashboard.json
+ 6405  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6407  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6408  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6409  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6410  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6411  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6412  aws cloudwatch put-dashboard --dashboard-name EKS-Debug-Dashboard --dashboard-body file://dashboard-debug.json
+ 6413  aws cloudwatch put-dashboard --dashboard-name EKS-Advanced-Dashboard --dashboard-body file://dashboard-pro.json
+ 6414  aws cloudwatch put-dashboard --dashboard-name EKS-Executive-Dashboard --dashboard-body file://dashboard-final.json
+ 6415  aws eks list-addons --cluster-name plataforma-bet-eks-cluster
+ 6417  history |gre aws>X.AWS-Cli
+ 6418  history |grep aws >X.AWS-Cli
+ 6420  aws eks list-addons --cluster-name plataforma-bet-eks-cluster
+ 6429  aws eks describe-addon --cluster-name plataforma-bet-eks-cluster --addon-name amazon-cloudwatch-observability
+ 6434  while true; do curl -s -o /dev/null http://a22851632d55e46cd969da75b525a7a3-1508101266.us-east-1.elb.amazonaws.com\; echo "Requisição enviada..."; sleep 0.5; done

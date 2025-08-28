@@ -1,0 +1,168 @@
+{
+    "widgets": [
+        {
+            "height": 1,
+            "width": 24,
+            "y": 0,
+            "x": 0,
+            "type": "text",
+            "properties": {
+                "markdown": "# Dashboard de Monitoramento do Cluster EKS: plataforma-bet-eks-cluster"
+            }
+        },
+        {
+            "height": 3,
+            "width": 6,
+            "y": 1,
+            "x": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "cluster_node_count", "ClusterName", "plataforma-bet-eks-cluster", { "stat": "Average" } ]
+                ],
+                "view": "singleValue",
+                "region": "us-east-1",
+                "title": "Nós no Cluster",
+                "period": 300
+            }
+        },
+        {
+            "height": 3,
+            "width": 6,
+            "y": 1,
+            "x": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "cluster_pod_count", "ClusterName", "plataforma-bet-eks-cluster", { "stat": "Average" } ]
+                ],
+                "view": "singleValue",
+                "region": "us-east-1",
+                "title": "Pods no Cluster",
+                "period": 300
+            }
+        },
+        {
+            "height": 2,
+            "width": 24,
+            "y": 4,
+            "x": 0,
+            "type": "text",
+            "properties": {
+                "markdown": "## Performance dos Nós (Worker Nodes)"
+            }
+        },
+        {
+            "height": 6,
+            "width": 12,
+            "y": 6,
+            "x": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "node_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster", { "label": "${[metric_2_raw.InstanceId]}" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-east-1",
+                "title": "Utilização de CPU por Nó (%)",
+                "period": 60
+            }
+        },
+        {
+            "height": 6,
+            "width": 12,
+            "y": 6,
+            "x": 12,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "node_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster", { "label": "${[metric_2_raw.InstanceId]}" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-east-1",
+                "title": "Utilização de Memória por Nó (%)",
+                "period": 60
+            }
+        },
+        {
+            "height": 6,
+            "width": 12,
+            "y": 12,
+            "x": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "node_network_total_bytes", "ClusterName", "plataforma-bet-eks-cluster", { "label": "${[metric_2_raw.InstanceId]}" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-east-1",
+                "title": "Tráfego de Rede por Nó (Bytes)",
+                "period": 60
+            }
+        },
+        {
+            "height": 6,
+            "width": 12,
+            "y": 12,
+            "x": 12,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "node_filesystem_utilization", "ClusterName", "plataforma-bet-eks-cluster", { "label": "${[metric_2_raw.InstanceId]}" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-east-1",
+                "title": "Utilização de Disco por Nó (%)",
+                "period": 60
+            }
+        },
+        {
+            "height": 2,
+            "width": 24,
+            "y": 18,
+            "x": 0,
+            "type": "text",
+            "properties": {
+                "markdown": "## Performance Agregada (Pods e Serviços)"
+            }
+        },
+        {
+            "height": 6,
+            "width": 12,
+            "y": 20,
+            "x": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "pod_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-east-1",
+                "title": "Utilização de CPU por Pod",
+                "period": 60
+            }
+        },
+        {
+            "height": 6,
+            "width": 12,
+            "y": 20,
+            "x": 12,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "ContainerInsights", "pod_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-east-1",
+                "title": "Utilização de Memória por Pod",
+                "period": 60
+            }
+        }
+    ]
+}

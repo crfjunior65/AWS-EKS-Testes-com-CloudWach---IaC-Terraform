@@ -1,0 +1,131 @@
+{
+    "widgets": [
+        {
+            "type": "text",
+            "x": 0,
+            "y": 0,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "# Painel de Controle Executivo - Cluster EKS: plataforma-bet-eks-cluster"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 2,
+            "width": 9,
+            "height": 6,
+            "properties": {
+                "view": "gauge",
+                "metrics": [
+                    [ "ContainerInsights", "cluster_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Utilização de CPU (Cluster)",
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 9,
+            "y": 2,
+            "width": 9,
+            "height": 6,
+            "properties": {
+                "view": "gauge",
+                "metrics": [
+                    [ "ContainerInsights", "cluster_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Utilização de Memória (Cluster)",
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 2,
+            "width": 6,
+            "height": 3,
+            "properties": {
+                "view": "singleValue",
+                "metrics": [
+                    [ "ContainerInsights", "cluster_node_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Nós Ativos",
+                "sparkline": true
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 5,
+            "width": 6,
+            "height": 3,
+            "properties": {
+                "view": "singleValue",
+                "metrics": [
+                    [ "ContainerInsights", "cluster_failed_pod_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                ],
+                "region": "us-east-1",
+                "title": "Pods com Falha",
+                "sparkline": true
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 8,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "metrics": [
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"plataforma-bet-eks-cluster\" Code=~\"5..\"', 'Sum', 60)", "label": "Erros 5xx (Soma)", "id": "e1", "color": "#d62728" } ]
+                ],
+                "region": "us-east-1",
+                "title": "API Server - Erros Críticos (5xx)"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 8,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "region": "us-east-1",
+                "title": "Top Pods por CPU",
+                "metrics": [
+                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e1" } ]
+                ]
+            }
+        },
+        {
+            "type": "log",
+            "x": 0,
+            "y": 14,
+            "width": 24,
+            "height": 8,
+            "properties": {
+                "query": "SOURCE \"/aws/eks/plataforma-bet-eks-cluster/cluster\" | fields @timestamp, @message | sort @timestamp desc | limit 20",
+                "region": "us-east-1",
+                "title": "Logs do Control Plane (Eventos Recentes)",
+                "view": "table"
+            }
+        }
+    ]
+}

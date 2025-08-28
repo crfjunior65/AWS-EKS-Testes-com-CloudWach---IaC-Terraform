@@ -1,0 +1,82 @@
+.terraform
+.terraform/*
+.terraform/
+# === Terraform ===
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfplan
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+.pre-*
+
+# === Diretórios de build CI/CD ===
+build/
+dist/
+out/
+Testes/
+
+# === AWS / Credenciais (nunca suba isso!) ===
+*.pem
+*.key
+*.crt
+*.aws-credentials
+aws-credentials.json
+
+# === Docker / Kubernetes ===
+.docker/
+docker-compose.override.yml
+
+# === VSCode / IDEs ===
+.vscode/
+.idea/
+*.swp
+
+# === Arquivos temporários ===
+*.log
+*.bak
+*.tmp
+*.DS_Store
+Thumbs.db
+
+# === Node / Python / Go etc (caso use nos scripts) ===
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+
+# === GitHub Actions (evitar secrets locais) ===
+.github/secrets/
+
+# === Arquivos de sistema ===
+ehthumbs.db
+Icon?
+Desktop.ini
+*.sh*
+*-Desativado*
+*.tf-*
+ZbxDb/
+ZbxDb*/
+SAO/
+*.sh-*
+*.pub
+*.key
+*key*
+*.sh.tpl
+*.tpl
+*.sh
+Testes
+Testes/
+terragrunt
+terragrunt/
+TesteAWS_CLI
+*AWS_CLI*
+X.*
+X*

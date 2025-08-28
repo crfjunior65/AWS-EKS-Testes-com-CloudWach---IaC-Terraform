@@ -1,0 +1,25 @@
+{
+    "widgets": [
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "region": "us-east-1",
+                "title": "Debug - Top Pods por CPU",
+                "metrics": [
+                    [
+                        {
+                            "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)",
+                            "label": "${PodName}",
+                            "id": "e1"
+                        }
+                    ]
+                ]
+            }
+        }
+    ]
+}
