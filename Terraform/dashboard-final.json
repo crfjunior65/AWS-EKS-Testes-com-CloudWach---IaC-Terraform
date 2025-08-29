@@ -7,7 +7,7 @@
             "width": 24,
             "height": 1,
             "properties": {
-                "markdown": "# Painel de Controle Executivo - Cluster EKS: plataforma-bet-eks-cluster"
+                "markdown": "# Painel de Controle Executivo - Cluster EKS: pbet-cluster"
             }
         },
         {
@@ -19,7 +19,7 @@
             "properties": {
                 "view": "gauge",
                 "metrics": [
-                    [ "ContainerInsights", "cluster_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "cluster_cpu_utilization", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Utilização de CPU (Cluster)",
@@ -40,7 +40,7 @@
             "properties": {
                 "view": "gauge",
                 "metrics": [
-                    [ "ContainerInsights", "cluster_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "cluster_memory_utilization", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Utilização de Memória (Cluster)",
@@ -61,7 +61,7 @@
             "properties": {
                 "view": "singleValue",
                 "metrics": [
-                    [ "ContainerInsights", "cluster_node_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "cluster_node_count", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Nós Ativos",
@@ -77,7 +77,7 @@
             "properties": {
                 "view": "singleValue",
                 "metrics": [
-                    [ "ContainerInsights", "cluster_failed_pod_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "cluster_failed_pod_count", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Pods com Falha",
@@ -93,7 +93,7 @@
             "properties": {
                 "view": "timeSeries",
                 "metrics": [
-                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"plataforma-bet-eks-cluster\" Code=~\"5..\"', 'Sum', 60)", "label": "Erros 5xx (Soma)", "id": "e1", "color": "#d62728" } ]
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"pbet-cluster\" Code=~\"5..\"', 'Sum', 60)", "label": "Erros 5xx (Soma)", "id": "e1", "color": "#d62728" } ]
                 ],
                 "region": "us-east-1",
                 "title": "API Server - Erros Críticos (5xx)"
@@ -110,7 +110,7 @@
                 "region": "us-east-1",
                 "title": "Top Pods por CPU",
                 "metrics": [
-                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e1" } ]
+                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"pbet-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e1" } ]
                 ]
             }
         },
@@ -121,7 +121,7 @@
             "width": 24,
             "height": 8,
             "properties": {
-                "query": "SOURCE \"/aws/eks/plataforma-bet-eks-cluster/cluster\" | fields @timestamp, @message | sort @timestamp desc | limit 20",
+                "query": "SOURCE \"/aws/eks/pbet-cluster/cluster\" | fields @timestamp, @message | sort @timestamp desc | limit 20",
                 "region": "us-east-1",
                 "title": "Logs do Control Plane (Eventos Recentes)",
                 "view": "table"

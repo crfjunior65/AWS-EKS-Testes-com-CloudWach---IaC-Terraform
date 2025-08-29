@@ -13,7 +13,7 @@
                 "metrics": [
                     [
                         {
-                            "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)",
+                            "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"pbet-cluster\"', 'Average', 300)",
                             "label": "${PodName}",
                             "id": "e1"
                         }

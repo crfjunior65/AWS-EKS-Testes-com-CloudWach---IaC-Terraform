@@ -7,7 +7,7 @@ variable "region" {
 variable "cluster_name" {
   description = "Nome do cluster EKS"
   type        = string
-  default     = "plataforma-bet-eks-cluster"
+  default     = "pbet-cluster"
 }
 
 variable "cluster_version" {

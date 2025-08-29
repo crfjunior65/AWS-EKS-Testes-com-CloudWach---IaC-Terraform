@@ -7,7 +7,7 @@
             "width": 24,
             "height": 1,
             "properties": {
-                "markdown": "# Análise Avançada do Cluster EKS: plataforma-bet-eks-cluster"
+                "markdown": "# Análise Avançada do Cluster EKS: pbet-cluster"
             }
         },
         {
@@ -29,7 +29,7 @@
             "properties": {
                 "view": "singleValue",
                 "metrics": [
-                    [ "ContainerInsights", "cluster_node_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "cluster_node_count", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Nós Ativos"
@@ -44,7 +44,7 @@
             "properties": {
                 "view": "singleValue",
                 "metrics": [
-                    [ "ContainerInsights", "cluster_pod_count", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "cluster_pod_count", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Pods Totais"
@@ -59,7 +59,7 @@
             "properties": {
                 "view": "singleValue",
                 "metrics": [
-                    [ "ContainerInsights", "namespace_number_of_running_pods", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "namespace_number_of_running_pods", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Namespaces"
@@ -74,7 +74,7 @@
             "properties": {
                 "view": "timeSeries",
                 "metrics": [
-                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_latency_seconds\" ClusterName=\"plataforma-bet-eks-cluster\"', 'p99', 300)", "label": "Latência p99", "id": "e1" } ]
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_latency_seconds\" ClusterName=\"pbet-cluster\"', 'p99', 300)", "label": "Latência p99", "id": "e1" } ]
                 ],
                 "region": "us-east-1",
                 "title": "Latência do API Server (p99)"
@@ -89,8 +89,8 @@
             "properties": {
                 "view": "timeSeries",
                 "metrics": [
-                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"plataforma-bet-eks-cluster\" Code=~\"5..\"', 'Sum', 300)", "label": "Erros 5xx", "id": "e1" } ],
-                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"plataforma-bet-eks-cluster\" Code=~\"4..\"', 'Sum', 300)", "label": "Erros 4xx", "id": "e2" } ]
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"pbet-cluster\" Code=~\"5..\"', 'Sum', 300)", "label": "Erros 5xx", "id": "e1" } ],
+                    [ { "expression": "SEARCH('{AWS/EKS,ClusterName} MetricName=\"apiserver_request_total\" ClusterName=\"pbet-cluster\" Code=~\"4..\"', 'Sum', 300)", "label": "Erros 4xx", "id": "e2" } ]
                 ],
                 "region": "us-east-1",
                 "title": "Erros do API Server (Soma)"
@@ -115,7 +115,7 @@
             "properties": {
                 "view": "timeSeries",
                 "metrics": [
-                    [ "ContainerInsights", "node_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "node_cpu_utilization", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Utilização de CPU por Nó (%)"
@@ -130,7 +130,7 @@
             "properties": {
                 "view": "timeSeries",
                 "metrics": [
-                    [ "ContainerInsights", "node_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "node_memory_utilization", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Utilização de Memória por Nó (%)"
@@ -157,7 +157,7 @@
                 "region": "us-east-1",
                 "title": "Top Pods por CPU",
                 "metrics": [
-                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e1" } ]
+                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_cpu_utilization\" ClusterName=\"pbet-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e1" } ]
                 ]
             }
         },
@@ -172,7 +172,7 @@
                 "region": "us-east-1",
                 "title": "Top Pods por Memória",
                 "metrics": [
-                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_memory_utilization\" ClusterName=\"plataforma-bet-eks-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e2" } ]
+                    [ { "expression": "SEARCH('{ContainerInsights,ClusterName,PodName} MetricName=\"pod_memory_utilization\" ClusterName=\"pbet-cluster\"', 'Average', 300)", "label": "${PodName}", "id": "e2" } ]
                 ]
             }
         },
@@ -185,7 +185,7 @@
             "properties": {
                 "view": "timeSeries",
                 "metrics": [
-                    [ "ContainerInsights", "namespace_cpu_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "namespace_cpu_utilization", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Utilização de CPU por Namespace"
@@ -200,7 +200,7 @@
             "properties": {
                 "view": "timeSeries",
                 "metrics": [
-                    [ "ContainerInsights", "namespace_memory_utilization", "ClusterName", "plataforma-bet-eks-cluster" ]
+                    [ "ContainerInsights", "namespace_memory_utilization", "ClusterName", "pbet-cluster" ]
                 ],
                 "region": "us-east-1",
                 "title": "Utilização de Memória por Namespace"

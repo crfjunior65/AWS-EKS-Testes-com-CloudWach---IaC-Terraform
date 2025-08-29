@@ -31,7 +31,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Nome do cluster EKS | `string` | `"plataforma-bet-eks-cluster"` | no |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Nome do cluster EKS | `string` | `"pbet-cluster"` | no |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | Versão do Kubernetes | `string` | `"1.29"` | no |
 | <a name="input_desired_capacity"></a> [desired\_capacity](#input\_desired\_capacity) | Número de nós desejados | `number` | `3` | no |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | Par de chaves EC2 para SSH (opcional) | `string` | `"aws-key-terraform"` | no |
